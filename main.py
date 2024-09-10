@@ -90,7 +90,7 @@ async def topup(request: TopupRequest):
           
         try:  
             db.commit()  
-            new_balance = user.amount  # Access the amount to load it before closing the session  
+            new_balance = user.amount    
         except Exception as e:  
             db.rollback()  
             raise HTTPException(status_code=500, detail="Database error")  
